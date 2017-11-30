@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   
   def import
+    require 'net/http'
     url = "http://buildplatform.abscond.org/reputations/#{params[:buildplatformaccount]}.json"
     uri = URI(url)
     response = Net::HTTP.get(uri)
