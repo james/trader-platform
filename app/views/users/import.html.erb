@@ -1,0 +1,23 @@
+<h1>Welcome!</h1>
+
+<h2>We've imported your reputation from BuildPlatform</h2>
+
+<p>You now have a reputation of <%= @imported_data['averageRating'] %> stars based on <%= @imported_data['reviewCount'] %> reviews</p>
+
+<% @imported_data['reviews'].each do |review| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h4 class="card-title"><% review['title'] %></h4>
+      <h6 class="card-subtitle mb-2 text-muted"><%= review['customerName'] %></h6>
+      <p class="card-text">
+        <%= review['rating'] %> stars. <br />
+        <%= review['description'] %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<form action="/import" method="post">
+  <button type="submit" class="btn btn-primary">Next</button>
+</form>
+</div>
