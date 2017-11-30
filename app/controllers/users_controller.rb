@@ -9,5 +9,7 @@ class UsersController < ApplicationController
     uri = URI(url)
     response = Net::HTTP.get(uri)
     @imported_data = JSON.parse(response)
+  rescue
+    render 'error'
   end
 end
